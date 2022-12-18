@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useRef } from 'react';
 
-const Snake = props => {
+export default (props) => {
+  const ref = useRef();
+
   return (
     <div>
       {props.snakeDots.map((dot, i) => {
         const style = {
           left: `${dot[0]}%`,
           top: `${dot[1]}%`
-        };
-        return <div className="snake" key={i} style={style} />;
+        }
+        return (
+          <div className="snake-dot" ref={ref} key={i} style={style}></div>
+        )
       })}
     </div>
-  );
-};
-export default Snake;
+  )
+}
